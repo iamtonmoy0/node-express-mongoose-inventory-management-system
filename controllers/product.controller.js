@@ -1,8 +1,5 @@
-const productSchema = require("../model/product.model");
-const mongoose=require('mongoose');
-
-//schema model 
-const Product=mongoose.model('product',productSchema)
+const Product = require("../model/product.model");
+ 
 // get product
 const getProduct=async(req,res,next)=>{
 	try {

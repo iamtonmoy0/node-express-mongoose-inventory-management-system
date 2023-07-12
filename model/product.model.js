@@ -75,4 +75,7 @@ const productSchema=new Schema({
 }]
 })
 
-module.exports=productSchema;
+//schema model
+const Product=mongoose.model('product',productSchema)
+
+module.exports=Product;
