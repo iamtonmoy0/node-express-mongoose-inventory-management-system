@@ -22,6 +22,25 @@ const getProduct=async(req,res,next)=>{
 	}
 
 }
+// get product by id
+const getProductById=async(req,res,next)=>{
+	try {
+		const product =await Product.findById(req.params.id)
+		res.status(200).json({
+			status:"success",
+			message:"Data found",
+			data:product
+		})
+		
+	} catch (error) {
+		res.status(400).json({
+			status:"fail",
+			message:"can't get the data",
+			error:error.message,
+		})
+	}
+
+}
 //add product
 const addProduct=async(req,res,next)=>{
 	try {
@@ -43,4 +62,4 @@ const addProduct=async(req,res,next)=>{
 	}
  
 }
-module.exports={addProduct,getProduct,};
+module.exports={addProduct,getProduct,getProductById};
