@@ -6,7 +6,7 @@ const app = require("./app");
 
 // database connection
 mongoose.connect(process.env.DATABASE).then(()=>{
-  console.log('Connected To Database')
+  console.log('Connected To Database'.green.bold)
 })
 // server
 const port = process.env.PORT || 8080;
