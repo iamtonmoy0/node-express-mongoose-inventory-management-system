@@ -1,9 +1,10 @@
-const Product = require("../model/product.model");
+const { getProductServices, getProductByIdServices, createProductServices } = require("../services/product.services")
+
  
 // get product
 const getProduct=async(req,res,next)=>{
 	try {
-		const product =await Product.find({})
+		const product = await getProductServices();
 		res.status(200).json({
 			status:"success",
 			message:"Data found",
@@ -22,7 +23,7 @@ const getProduct=async(req,res,next)=>{
 // get product by id
 const getProductById=async(req,res,next)=>{
 	try {
-		const product =await Product.findById(req.params.id)
+		const product =await getProductByIdServices(req.params.id);
 		res.status(200).json({
 			status:"success",
 			message:"Data found",
@@ -42,7 +43,7 @@ const getProductById=async(req,res,next)=>{
 const addProduct=async(req,res,next)=>{
 	try {
 	//can use create method instead of save
-	const product= new Product(req.body);
+	const product= await createProductServices(req.body);
 	const result=await product.save();
 	res.status(200).json({
 		status:"success",
