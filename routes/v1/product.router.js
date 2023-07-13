@@ -6,6 +6,8 @@ router.route('/')
  .get(Product.getProduct)
  .post(Product.addProduct)
 
+router.route('/bulk-update').patch(Product.bulkProductUpdate)
+
  router.route('/:id')
  .get(Product.getProductById)
  .patch(Product.updateProduct)
