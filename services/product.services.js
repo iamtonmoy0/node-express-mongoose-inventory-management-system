@@ -13,3 +13,8 @@ exports.createProductServices=async(data)=>{
 	return product;
 
 }
+//update product query
+exports.updateProductServices=async(productId,data)=>{
+	const product=await Product.updateOne({_id:productId},{$set:data});
+	return product;
+}

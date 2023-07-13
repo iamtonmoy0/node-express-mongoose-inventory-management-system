@@ -7,7 +7,8 @@ router.route('/')
  .post(Product.addProduct)
 
  router.route('/:id')
- .get(Product.getProductById);
+ .get(Product.getProductById)
+ .patch(Product.updateProduct)
 
 
 module.exports=router;
