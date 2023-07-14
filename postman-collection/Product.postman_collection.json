@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "68e88d1a-ae21-4d4b-854a-27ea9c9b7280",
+		"name": "Product",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27660738",
+		"_collection_link": "https://grey-equinox-753614.postman.co/workspace/Inventory-management-system~7d80a10e-0fbe-4ea8-89b4-143ca39d45a6/collection/27660738-68e88d1a-ae21-4d4b-854a-27ea9c9b7280?action=share&creator=27660738&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Get all Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/v1/product?page=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"product"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get product by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/v1/product/64ae63110d2e193d47b58a09",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"64ae63110d2e193d47b58a09"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product by id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"price\":300\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/product/64ae63110d2e193d47b58a09",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"64ae63110d2e193d47b58a09"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n            \"name\": \"bettery\",\n            \"description\": \"300mah\",\n            \"price\": 6000,\n            \"quantity\": 5000,\n            \"unit\": \"pcs\",\n            \"status\": \"in-stock\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Multiple product update",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ids\": [\n        {\n            \"id\": \"64ae63110d2e193d47b58a09\",\n            \"data\": {\n                \"price\": 500\n            }\n        },\n        {\n            \"id\": \"64ae74a085b7d2489f5142d8\",\n            \"data\": {\n                \"price\": 400\n            }\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/product/bulk-action",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"bulk-action"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete product by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/v1/product/64ae8edf8a734565250caf69",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"64ae8edf8a734565250caf69"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Multiple product delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ids\":[\"64b024607d3a04d9936ce1f8\",\"64b024607d3a04d9936ce1f9\",\"64b024607d3a04d9936ce1fa\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/product/bulk-action",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"bulk-action"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
