@@ -4,7 +4,19 @@ const { getProductServices, getProductByIdServices, createProductServices, updat
 // get product
 const getProduct=async(req,res,next)=>{
 	try {
-		const product = await getProductServices();
+		// filter excludes all 
+		let filters={...req.query}
+		const excludeFields=['sort','page','limit'];
+		excludeFields.forEach(field=>delete filters[field]);
+		// console.log(filters)
+		console.log(req.query)
+		// query parameter modification
+		let filterString=JSON.stringify(filters);
+		filterString=filterString.replace(/\b(gt|lt|gte|lte)\b/g,match=>`$${match}`)
+		console.log(filterString)
+		filters=JSON.parse(filterString)
+		// main
+		const product = await getProductServices(filters);
 		res.status(200).json({
 			status:"success",
 			message:"Data found",
