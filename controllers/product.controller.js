@@ -12,11 +12,32 @@ const getProduct=async(req,res,next)=>{
 		console.log(req.query)
 		// query parameter modification
 		let filterString=JSON.stringify(filters);
-		filterString=filterString.replace(/\b(gt|lt|gte|lte)\b/g,match=>`$${match}`)
+		filterString=filterString.replace(/\b(gt|lt|gte|lte|eq)\b/g,match=>`$${match}`)
 		console.log(filterString)
 		filters=JSON.parse(filterString)
+
+		const queries={};
+		// sort
+		if(req.query.sort){
+			const sortBy=req.query.sort.split(',').join(' ');
+			queries.sortBy=sortBy;
+		}
+		// fields
+		if(req.query.fields){
+			const field=req.query.fields.split(',').join(' ');
+			queries.fields=field;
+		}
+		// page and limit
+		if(req.query.page){
+			const {page=0,limit=10}=req.query;
+			const skip=(page-1)*(limit*1);
+			queries.skip=skip;
+			queries.limit=(limit*1);
+		}
+		
+
 		// main
-		const product = await getProductServices(filters);
+		const product = await getProductServices(filters,queries);
 		res.status(200).json({
 			status:"success",
 			message:"Data found",
