@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const path = require('path');
 const cors = require("cors");
 const  mongoose  = require("mongoose");
 const productRouter = require("./routes/v1/product.router");
@@ -10,7 +11,7 @@ const port = process.env.PORT || 8080;
 
 app.use(express.json());
 app.use(cors());
-
+app.set('view engine', 'pug');//view engine pug
 // database connection
 const db=mongoose.connect(process.env.DATABASE,{useUnifiedTopology: true ,useNewUrlParser: true}).then(()=>{
   console.log('Connected To Database'.green.bold)
@@ -20,7 +21,7 @@ mongoose.set('useCreateIndex', true);
 
 
 app.get("/", (req, res) => {
-  res.send("server is working! YaY!");
+  res.render('index');
 });
 // product router
 app.use('/api/v1/product',productRouter);
