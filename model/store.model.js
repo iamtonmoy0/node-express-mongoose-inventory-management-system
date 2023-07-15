@@ -10,6 +10,7 @@ name:{
 	trim:true,
 	required:[true,'Please provide a store name'],
 	unique:true,
+	lowercase:true
 	
 },
 description:String,
