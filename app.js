@@ -1,9 +1,7 @@
 const express = require("express");
 const app = express();
-const path = require('path');
 const cors = require("cors");
-const  mongoose  = require("mongoose");
-const productRouter = require("./routes/v1/product.router");
+const mongoose  = require("mongoose");
 require("colors");
 require("dotenv").config();
 const port = process.env.PORT || 8080;
@@ -19,14 +17,19 @@ const db=mongoose.connect(process.env.DATABASE,{useUnifiedTopology: true ,useNew
 
 mongoose.set('useCreateIndex', true);
 
+// Route
+const productRouter = require("./routes/v1/product.router");
+const brandRouter = require("./routes/v1/brand.router");
+
 
 app.get("/", (req, res) => {
   res.render('index');
 });
-// product router
+
 app.use('/api/v1/product',productRouter);
-//if route not exist on server
-app.all('*',(req,res)=>{
+app.use('/api/v1/brand',brandRouter);
+  //if route not exist on server
+  app.all('*',(req,res)=>{
 	res.send('no route found')
 })
 app.listen(port, () => {

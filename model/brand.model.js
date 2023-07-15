@@ -21,7 +21,7 @@ const brandSchema=new Schema({
 	},
 	website:{
 		type:String,
-		validate:[validator.idURL,'Please provide a valid URL']
+		validate:[validator.isURL,'Please provide a valid URL']
 	},
 	location:String,
 	products:[{
@@ -32,7 +32,7 @@ const brandSchema=new Schema({
 		name:String,
 		contactNumber:String,
 		id:ObjectId,
-		ref:"Supplier"
+		ref:""
 	}],
 	status:{
 		type:String,
