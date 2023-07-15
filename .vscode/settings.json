@@ -17,5 +17,6 @@
     "statusBarItem.remoteForeground": "#15202b",
     "commandCenter.border": "#15202b99"
   },
-  "peacock.color": "#55b04f"
+  "peacock.color": "#55b04f",
+  "svn.ignoreMissingSvnWarning": true
 }

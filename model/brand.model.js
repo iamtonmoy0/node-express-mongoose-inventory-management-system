@@ -38,7 +38,8 @@ const brandSchema=new Schema({
 		type:String,
 		enum:['active','inactive'],
 		default:'active'
-	},
+	}
+},{
 	timestamps:true
 })
 const Brand=mongoose.model('brand',brandSchema);

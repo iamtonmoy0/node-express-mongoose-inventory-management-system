@@ -43,7 +43,9 @@ npm i
 │   
 ├── models
 │   ├── product.model.js
-│   
+│   ├── brand.model.js
+|   ├── category.model.js
+|   ├─ store.model.js
 ├── routes
 │   ├── product.router.js
 ├── middlewares
