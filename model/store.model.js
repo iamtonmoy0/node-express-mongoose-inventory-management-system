@@ -23,13 +23,13 @@ manager:{
 	name:String,
 	contactNumber:String,
 	id:ObjectId,
-	ref:'User'
+	// ref:'User'
 }
 },
 {
 	timestamps:true
 })
 
-const Store =mongoose.model('store',categorySchema);
+const Store =mongoose.model('store',storeSchema);
 
 module.exports=Store;

@@ -80,8 +80,10 @@ brand:{
 status:{
 	type:String,
 	required:true,
-	enum:{value:['in-stock','out-of-stock','discontinued'],
-	message:"Status cant be out of {VALUE}"}
+	enum:{
+    values:['in-stock','out-of-stock','discontinued'],
+  	message:"Status cant be out of {VALUE}"
+    }
 },
 store:{
   name:{
@@ -93,8 +95,8 @@ store:{
 	
 },
 id:ObjectId,
-required:true,
-ref:'Store'
+// required:true,
+// ref:'Store'
 },
 suppliedBy:{
 	name:{
@@ -106,7 +108,7 @@ suppliedBy:{
 	},
 	id:{
 		type:ObjectId,
-		ref:'Supplier'
+		// ref:'Supplier'
 	}
 }
 
@@ -118,6 +120,6 @@ suppliedBy:{
 	timestamps:true
 })
 
-const Stock =mongoose.model('stock',categorySchema);
+const Stock =mongoose.model('stock',stockSchema);
 
 module.exports=Stock;

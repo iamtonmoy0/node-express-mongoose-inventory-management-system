@@ -1,13 +1,13 @@
 const express=require('express');
 const router=express.Router();
-const brandController=require('../../controllers/brand.controller')
+const stockController=require('../../controllers/stock.controller')
 
 
 router.route('/')
- .post(brandController.createBrand)
- .get(brandController.getBrands)
+ .post(stockController.createStock)
+ .get(stockController.getStocks)
 router.route('/:id')
- .get(brandController.getBrandById)
- .delete(brandController.deleteBrandById)
- .patch(brandController.updateBrandById)
+ .get(stockController.getStockById)
+ .delete(stockController.deleteStockById)
+ .patch(stockController.updateStockById)
 module.exports=router;
