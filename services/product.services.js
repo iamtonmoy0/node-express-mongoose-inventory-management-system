@@ -1,4 +1,5 @@
 const Product = require("../model/product.model");
+const Brand=require("../model/brand.model")
 //get all product
 exports.getProductServices=async(filters,queries)=>{
 	const products=await Product.find(filters)
@@ -17,7 +18,11 @@ exports.getProductByIdServices=async(data)=>{
 }
 //create product
 exports.createProductServices=async(data)=>{
-	const product =new Product(data);
+	const product =await Product.create(data);
+	const {_id:productId,brand}=product;
+   //update the brand products=> array
+	const res=await Brand.updateOne({_id:brand.id},{$push:{products:productId}});
+	// console.log(res)
 	return product;
 
 }

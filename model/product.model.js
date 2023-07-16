@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const {ObjectId}=mongoose.Schema.Types;
 
 const Schema = mongoose.Schema;
+// TODO: some model is commented out for development purpose
 
 //product schema design 
 const productSchema=new Schema({
@@ -32,26 +33,26 @@ const productSchema=new Schema({
       message:"unit value can't be {value}.must be kg/litre/pcs/bag"
     }
   },
-  imageUrls:{
-    type:String,
-    required:true,
-    validate:{
-      validator:(value)=>{
-        if(!Array.isArray(value)){
-          return false;
-        };
-        let isValid=true;
-        value.forEach(url=>{
-          if(validator.isURL(url)){
-            isValid= false
-          }
-        });
-        return isValid;
-      },
-      message:"Please provide a valid image url"
-    }
+  // imageUrls:{
+  //   type:String,
+  //   required:true,
+  //   validate:{
+  //     validator:(value)=>{
+  //       if(!Array.isArray(value)){
+  //         return false;
+  //       };
+  //       let isValid=true;
+  //       value.forEach(url=>{
+  //         if(validator.isURL(url)){
+  //           isValid= false
+  //         }
+  //       });
+  //       return isValid;
+  //     },
+  //     message:"Please provide a valid image url"
+  //   }
 
-  },
+  // },
   // quantity:{
   //     type:Number,
   //     required:true,
@@ -92,7 +93,7 @@ const productSchema=new Schema({
   category:[{
     name:{
     type:String,
-    required:true,
+    // required:true,
   },
   _id:mongoose.Schema.Types.ObjectId,
 }],
