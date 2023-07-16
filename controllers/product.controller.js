@@ -182,4 +182,11 @@ try {
 }
 
 }
-module.exports={addProduct,getProduct,getProductById,updateProduct,bulkProductUpdate,deleteProductById,bulkProductDelete};
+const fileUpload=async(req,res,next)=>{
+	try {
+		res.status(200).json(req.file)
+	} catch (error) {
+		
+	}
+}
+module.exports={addProduct,getProduct,getProductById,updateProduct,bulkProductUpdate,deleteProductById,bulkProductDelete,fileUpload};

@@ -1,7 +1,9 @@
 const express=require('express');
 const Product = require('../../controllers/product.controller');
+const uploader = require('../../middleware/uploader');
 const router =express.Router();
 
+router.route('/file-upload').post(uploader.array('image'),Product.fileUpload)
 router.route('/bulk-action')
  .patch(Product.bulkProductUpdate)
  .delete(Product.bulkProductDelete)
