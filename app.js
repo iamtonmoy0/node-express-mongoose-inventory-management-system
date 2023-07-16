@@ -20,6 +20,9 @@ mongoose.set('useCreateIndex', true);
 // Route
 const productRouter = require("./routes/v1/product.router");
 const brandRouter = require("./routes/v1/brand.router");
+const categoryRouter = require("./routes/v1/category.router");
+const storeRouter = require("./routes/v1/store.router");
+const stockRouter = require("./routes/v1/stock.router");
 
 
 app.get("/", (req, res) => {
@@ -28,6 +31,9 @@ app.get("/", (req, res) => {
 
 app.use('/api/v1/product',productRouter);
 app.use('/api/v1/brand',brandRouter);
+app.use('/api/v1/category',categoryRouter);
+app.use('/api/v1/store',storeRouter);
+app.use('/api/v1/stock',stockRouter);
   //if route not exist on server
   app.all('*',(req,res)=>{
 	res.send('no route found')
