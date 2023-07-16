@@ -9,4 +9,5 @@ router.route('/')
 router.route('/:id')
  .get(brandController.getBrandById)
  .delete(brandController.deleteBrandById)
+ .patch(brandController.updateBrandById)
 module.exports=router;

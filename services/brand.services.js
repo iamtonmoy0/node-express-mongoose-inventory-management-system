@@ -17,3 +17,7 @@ exports.deleteBrandByIdServices=async(id)=>{
 	const result=await Brand.deleteOne({_id:id});
 	return result;
 }
+exports.updateBrandByIdServices=async(id,data)=>{
+	const result=await Brand.updateOne({_id:id},{$set:data},{runValidators:true});
+	return result;
+}

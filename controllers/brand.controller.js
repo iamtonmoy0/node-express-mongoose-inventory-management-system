@@ -1,4 +1,4 @@
-const { createBrandService, getBrandServices, getBrandByIdServices, deleteBrandByIdServices } = require("../services/brand.services")
+const { createBrandService, getBrandServices, getBrandByIdServices, deleteBrandByIdServices, updateBrandByIdServices } = require("../services/brand.services")
 
 exports.createBrand=async(req,res,next)=>{
 	try {
@@ -69,6 +69,28 @@ exports.deleteBrandById=async(req,res,next)=>{
 		res.status(400).json({
 			status:"fail",
 			error:"could not delete the brand"
+		})
+	}
+
+}
+exports.updateBrandById=async(req,res,next)=>{
+	try {
+		const result =await updateBrandByIdServices(req.params.id,req.body);
+		if(!result){
+			res.status(400).json({
+				status:'fail',
+				message:'Brand with this id dose not exist '
+			})
+		}
+		res.status(200).json({
+			status:"success",
+			message:'Brand  update successful',
+			data:result
+		})
+	} catch (error) {
+		res.status(400).json({
+			status:"fail",
+			error:"could not update the brand"
 		})
 	}
 
