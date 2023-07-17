@@ -24,6 +24,7 @@ const categoryRouter = require("./routes/v1/category.router");
 const storeRouter = require("./routes/v1/store.router");
 const stockRouter = require("./routes/v1/stock.router");
 const supplierRouter = require("./routes/v1/supplier.router");
+const userRouter = require("./routes/v1/user.router");
 
 
 app.get("/", (req, res) => {
@@ -35,7 +36,8 @@ app.use('/api/v1/brand',brandRouter);
 app.use('/api/v1/category',categoryRouter);
 app.use('/api/v1/store',storeRouter);
 app.use('/api/v1/stock',stockRouter);
-app.use('/api/v1/supplier',supplierRouter)
+app.use('/api/v1/supplier',supplierRouter);
+app.use('/api/v1/user',userRouter)
   //if route not exist on server
   app.all('*',(req,res)=>{
 	res.send('no route found')

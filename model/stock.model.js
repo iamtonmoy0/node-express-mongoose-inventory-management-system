@@ -8,7 +8,7 @@ const stockSchema=new Schema({
 	productId:{
 		type:ObjectId,
 		required:true,
-		ref:"Product"
+		ref:"product"
 	},
 name:{
 	type:String,
@@ -69,11 +69,11 @@ quantity:{
 brand:{
   name:{
     type:String,
-    required:true
+    required:true,
   },
   id:{
     type:ObjectId,
-    ref:'Brand',
+    ref:'brand',
     required:true
   }
 },
