@@ -94,9 +94,11 @@ store:{
 	lowercase:true
 	
 },
-id:ObjectId,
-// required:true,
-// ref:'Store'
+id:{
+  type:ObjectId,
+  required:true,
+   ref:'store'
+}
 },
 suppliedBy:{
 	name:{
@@ -108,7 +110,7 @@ suppliedBy:{
 	},
 	id:{
 		type:ObjectId,
-		// ref:'Supplier'
+		ref:'supplier'
 	}
 }
 
