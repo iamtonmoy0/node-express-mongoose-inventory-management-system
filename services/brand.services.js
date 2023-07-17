@@ -5,6 +5,7 @@ exports.getBrandServices=async()=>{
 	 .populate('products')
 	return result;
 }
+
 exports.createBrandService=async(data)=>{
 	const result=await Brand.create(data);
 	return result;

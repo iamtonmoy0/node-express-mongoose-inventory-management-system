@@ -30,12 +30,16 @@ const brandSchema=new Schema({
 		ref:'product'
 	},
  	],
-	suppliers:[{
-		name:String,
-		contactNumber:String,
-		id:ObjectId,
-		// ref:"Supplier"
-	}],
+	suppliers: [
+      {
+        name: String,
+        contactNumber: String,
+        id: {
+          type: ObjectId,
+          ref: 'supplier',
+        },
+      },
+    ],
 	status:{
 		type:String,
 		enum:['active','inactive'],
