@@ -6,7 +6,7 @@ exports.generateToken=(userInfo)=>{
 		role:userInfo.role
 	}
 	const token=jwt.sign(payload,process.env.TOKEN,{
-		expiresIn:"20"
+		expiresIn:"20h"
 	})
 	return token
 }

@@ -1,3 +1,4 @@
+const User = require("../model/user.model");
 const { signupService, loginService, findUserByEmail } = require("../services/user.services");
 const { generateToken } = require("../utils/token");
 
@@ -56,6 +57,19 @@ exports.login=async(req,res,next)=>{
 			status:'fail',
 			message:error
 		})
+		
+	}
+}
+exports.getMe=async(req,res,next)=>{
+	try {
+		// res.json(req.user)
+		const user=await findUserByEmail(req.user?.email)
+		res.status(200).json({
+			status:"success",
+			data:user
+		})
+		
+	} catch (error) {
 		
 	}
 }

@@ -2,6 +2,8 @@ const express=require('express');
 const Product = require('../../controllers/product.controller');
 const uploader = require('../../middleware/uploader');
 const router =express.Router();
+const auth=require('../../middleware/auth');
+const verifyToken = require('../../middleware/verifyToken');
 
 router.route('/file-upload').post(uploader.array('image'),Product.fileUpload)
 router.route('/bulk-action')
@@ -10,7 +12,7 @@ router.route('/bulk-action')
 
 router.route('/')
  .get(Product.getProduct)
- .post(Product.addProduct)
+ .post(verifyToken,auth("admin"),Product.addProduct) //need to pass verify token and auth middle ware 
 
  router.route('/:id')
  .get(Product.getProductById)
