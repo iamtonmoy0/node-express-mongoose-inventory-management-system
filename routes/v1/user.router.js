@@ -1,7 +1,7 @@
 const express=require('express');
 const userController=require('../../controllers/user.controller');
 const verifyToken = require('../../middleware/verifyToken');
-const router =express.Router();
+const router = express.Router();
 
 router.route('/signup')
  .post(userController.signup)
@@ -14,4 +14,4 @@ router.route('/me')
 
 
 
-module.exports=router;
+module.exports = router;
